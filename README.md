@@ -1,4 +1,4 @@
-# Check24 Code Challenge
+# Code Challenge
 
 ### To build the project just run
 make up certs build
