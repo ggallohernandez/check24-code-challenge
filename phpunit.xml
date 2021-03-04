@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="bootstrap/app.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="false"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+>
+    <testsuites>
+        <testsuite name="unit">
+            <directory>tests/unit</directory>
+        </testsuite>
+        <testsuite name="framework">
+            <directory>tests/unit/framework</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
+            <exclude>
+                <directory>./tests</directory>
+                <directory>./tests_acceptance</directory>
+                <directory>./vendor</directory>
+                <directory>./storage</directory>
+                <directory>./node_modules</directory>
+                <directory>./database</directory>
+                <directory>./routes</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="APP_ENV" value="testing" />
+        <env name="APP_NAME" value="Blog Test"/>
+        <env name="REDIS_CACHE_DATABASE" value="11" />
+        <env name="REDIS_SESSION_DATABASE" value="11" />
+        <env name="SESSION_DRIVER" value="redis"/>
+        <env name="CACHE_DRIVER" value="array"/>
+    </php>
+</phpunit>
